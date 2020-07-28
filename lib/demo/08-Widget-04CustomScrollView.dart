@@ -34,7 +34,7 @@ class HomeContent extends StatelessWidget {
                 mainAxisSpacing: 8,
               ),
               delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
+              SliverChildBuilderDelegate((BuildContext context, int index) {
                 return Container(
                   alignment: Alignment(0, 0),
                   color: Colors.orange,
@@ -79,7 +79,7 @@ class HomeContent2 extends StatelessWidget {
             childAspectRatio: 4.0,
           ),
           delegate: new SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
+                (BuildContext context, int index) {
               return new Container(
                 alignment: Alignment.center,
                 color: Colors.teal[100 * (index % 9)],
@@ -92,7 +92,7 @@ class HomeContent2 extends StatelessWidget {
         SliverFixedExtentList(
           itemExtent: 50.0,
           delegate:
-              SliverChildBuilderDelegate((BuildContext context, int index) {
+          SliverChildBuilderDelegate((BuildContext context, int index) {
             return new Container(
               alignment: Alignment.center,
               color: Colors.lightBlue[100 * (index % 9)],
