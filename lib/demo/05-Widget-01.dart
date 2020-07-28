@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+//Flutter中一些常用的的基础Widget
+
 main(List<String> args) {
   runApp(MyApp());
 }
@@ -26,10 +28,10 @@ class MyHomeBody extends StatelessWidget {
     return ListView(
       children: <Widget>[
         Text(
-        "我是Text组件",
-        style: TextStyle(
-            fontSize: 20,
-            color: Colors.purple
+          "我是Text组件",
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.purple
           ),
         ),
         Text.rich(
