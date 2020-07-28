@@ -13,82 +13,79 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("HelloWorld"),
         ),
-        body: MyHomeBody(),
+        body: MyHomeBody3(),
       ),
     );
   }
 }
 
-
+// ListView的基本使用
 class MyHomeBody extends StatelessWidget {
+
+  final TextStyle textStyle = TextStyle(fontSize: 20, color: Colors.redAccent);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Text(
-        "我是Text组件",
-        style: TextStyle(
-            fontSize: 20,
-            color: Colors.purple
-          ),
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text("我是ListView的第一项", style: textStyle),
         ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(text: "Text组件的.rich()用法", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black)),
-              TextSpan(text: "苏轼", style: TextStyle(fontSize: 18, color: Colors.redAccent)),
-              TextSpan(text: "\n莫听穿林打叶声，何妨吟啸且徐行。\n竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。")
-            ],
-          ),
-          style: TextStyle(fontSize: 20, color: Colors.purple),
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text("我是ListView的第二项。", style: textStyle),
         ),
-        FloatingActionButton(
-          child: Text("FloatingActionButton按钮"),
-          onPressed: () {
-            print("FloatingActionButton Click");
-          },
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("我是ListView的第三项", style: textStyle),
         ),
-        RaisedButton(
-          child: Text("RaisedButton按钮"),
-          onPressed: () {
-            print("RaisedButton Click");
-          },
+        ListTile(
+          leading: Icon(Icons.people, size: 36,),
+          title: Text("联系人"),
+          subtitle: Text("联系人信息"),
+          trailing: Icon(Icons.arrow_forward_ios),
         ),
-        FlatButton(
-          child: Text("FlatButton按钮"),
-          onPressed: () {
-            print("FlatButton Click");
-          },
-        ),
-        OutlineButton(
-          child: Text("OutlineButton按钮"),
-          onPressed: () {
-            print("OutlineButton Click");
-          },
-        ),
-        RaisedButton(
-          child: Text("按钮自定义样式", style: TextStyle(color: Colors.white)),
-          color: Colors.orange, // 按钮的颜色
-          highlightColor: Colors.orange[700], // 按下去高亮颜色
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), // 圆角的实现
-          onPressed: () {
-            print("同意协议");
-          },
-        ),
-        Container(
-          child: Image.network(
-            "http://img0.dili360.com/ga/M01/48/3C/wKgBy1kj49qAMVd7ADKmuZ9jug8377.tub.jpg",
-            alignment: Alignment.topCenter,
-            repeat: ImageRepeat.repeatY,
-            color: Colors.red,
-            colorBlendMode: BlendMode.colorDodge,
-          ),
-          width: 50,
-          height: 50,
-          color: Colors.yellow,
+        ListTile(
+          leading: Icon(Icons.email, size: 36,),
+          title: Text("邮箱"),
+          subtitle: Text("邮箱地址信息"),
+          trailing: Icon(Icons.arrow_forward_ios),
         )
       ],
+    );
+  }
+}
+
+// ListView参数scrollDirection 水平滚动
+class MyHomeBody2 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      itemExtent: 200,
+      children: <Widget>[
+        Container(color: Colors.red, width: 200),
+        Container(color: Colors.green, width: 200),
+        Container(color: Colors.blue, width: 200),
+        Container(color: Colors.purple, width: 200),
+        Container(color: Colors.orange, width: 200),
+      ],
+    );
+  }
+}
+
+// ListView.build基本使用
+class MyHomeBody3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 100,
+        itemExtent: 80,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(title: Text("标题$index"), subtitle: Text("详情内容$index"));
+        }
     );
   }
 }
